@@ -74,6 +74,7 @@ madspin=ON
 gunzip Events/run_01/unweighted_events.lhe.gz
 
 #You can use lhe_reader_non_decayed.c script to quickly check what is in your LHE file.
+cd ../..
 
 #Compilation:
 #If you have TLorentz.h vector problem concerning with the root version then use root6.
