@@ -79,7 +79,7 @@ cd ../..
 #Compilation:
 #If you have TLorentz.h vector problem concerning with the root version then use root6.
 find /home/muhammad/root6/ -type f -name "thisroot.sh"
-source /home/muhammad/root6/build/bin/thisroot.sh
+source $HOME/root6/build/bin/thisroot.sh
 g++ -std=c++11 lhe_reader_non_decayed.c -o lhe_reader_non_decayed -I`root-config --incdir` `root-config --libs`
 
 #g++ lhe_reader_non_decayed.c -o lhe_reader -I`root-config --incdir` `root-config --libs`
