@@ -1,5 +1,7 @@
 # clone the lyon setup
 git clone https://github.com/IPNL-CMS/HTTMadgraphDocumentation.git madgraph
+cd madgraph
+
 # install the latest PDF
 curl -O -L https://www.hepforge.org/archive/lhapdf/LHAPDF-6.1.6.tar.gz
 tar xf LHAPDF-6.1.6.tar.gz
@@ -72,11 +74,12 @@ madspin=ON
 gunzip Events/run_01/unweighted_events.lhe.gz
 
 #You can use lhe_reader_non_decayed.c script to quickly check what is in your LHE file.
+cd ../..
 
 #Compilation:
 #If you have TLorentz.h vector problem concerning with the root version then use root6.
 find /home/muhammad/root6/ -type f -name "thisroot.sh"
-source /home/muhammad/root6/build/bin/thisroot.sh
+source $HOME/root6/build/bin/thisroot.sh
 g++ -std=c++11 lhe_reader_non_decayed.c -o lhe_reader_non_decayed -I`root-config --incdir` `root-config --libs`
 
 #g++ lhe_reader_non_decayed.c -o lhe_reader -I`root-config --incdir` `root-config --libs`
