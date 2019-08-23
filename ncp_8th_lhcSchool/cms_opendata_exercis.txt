@@ -1,0 +1,14 @@
+Analysis of the di-muon spectrum using data from the CMS detector taken in 2012
+>> http://opendata.cern.ch/record/12342
+
+Higgs-to-four-lepton analysis example using 2011-2012 data
+http://opendata.cern.ch/record/5500
+
+>> mkdir rootfiles
+>> cd rootfiles
+>> wget http://opendata.web.cern.ch/record/5501/files/rootfilelist.txt
+>> wget -i rootfilelist.txt
+>> wget http://opendata.cern.ch/record/5500/files/M4Lnormdatall.cc
+>> root -l M4Lnormdatall.cc
+>> .q
+>> 
