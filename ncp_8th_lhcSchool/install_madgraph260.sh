@@ -1,5 +1,7 @@
-# clone the lyon setup
-git clone https://github.com/IPNL-CMS/HTTMadgraphDocumentation.git madgraph
+# clone madgraph setup
+git clone https://github.com/muhammadgul/schools.git madgraph
+
+### for backupgit clone https://github.com/IPNL-CMS/HTTMadgraphDocumentation.git madgraph
 cd madgraph
 
 # install the latest PDF
