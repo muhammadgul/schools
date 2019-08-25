@@ -19,6 +19,17 @@ cd ..
 wget http://madgraph.physics.illinois.edu/Downloads/MG5_aMC_v2.6.0.tar.gz
 tar xf MG5_aMC_v2.6.0.tar.gz
 rm MG5_aMC_v2.6.0.tar.gz
+
+####################################################################
+#### If downloading makes problem, download directly from github
+cd ..
+git clone https://github.com/muhammadgul/schools.git download_madgraph
+mv download_madgraph/MG5_aMC_v2.6.0.tar.gz madgraph/
+cd madgraph/
+tar xf MG5_aMC_v2.6.0.tar.gz
+rm MG5_aMC_v2.6.0.tar.gz
+###################################################################
+
 #set the pdf path
 path=$PWD/bin/lhapdf-config
 sed "s@# lhapdf = lhapdf-config@$path@" MG5_aMC_v2_6_0/input/mg5_configuration.txt > MG5_aMC_v2_6_0/input/newmg5_configuration.txt
