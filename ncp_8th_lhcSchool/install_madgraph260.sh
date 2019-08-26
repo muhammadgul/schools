@@ -21,9 +21,9 @@ cd ..
 #download the proper pdf sets
 ./install_PDF_set.sh
 #copy madgraph recent version
-#wget http://madgraph.physics.illinois.edu/Downloads/MG5_aMC_v2.6.0.tar.gz
-#tar xf MG5_aMC_v2.6.0.tar.gz
-#rm MG5_aMC_v2.6.0.tar.gz
+wget http://madgraph.physics.illinois.edu/Downloads/MG5_aMC_v2.6.0.tar.gz
+tar xf MG5_aMC_v2.6.0.tar.gz
+rm MG5_aMC_v2.6.0.tar.gz
 
 tar xf MG5_aMC_v2.6.0.tar.gz
 rm MG5_aMC_v2.6.0.tar.gz
