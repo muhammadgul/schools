@@ -88,6 +88,7 @@ cd ../..
 #Compilation:
 # Use CMSSW environment to set root 6.
  source /cvmfs/cms.cern.ch/slc6_amd64_gcc700/lcg/root/6.10.01/bin/thisroot.sh
+ source /cvmfs/sft.cern.ch/lcg/views/LCG_95/x86_64-slc6-gcc8-opt/setup.sh
  
 #SCRAM_ARCH=slc6_amd64_gcc530; export SCRAM_ARC
 #cmsrel CMSSW_9_0_4
