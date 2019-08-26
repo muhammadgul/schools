@@ -39,7 +39,7 @@ mv MG5_aMC_v2_6_0/input/newmg5_configuration.txt MG5_aMC_v2_6_0/input/mg5_config
 #make
 
 # copy model to madgraph dir
-#cp -r Massive_Higgs_UFO MG5_aMC_v2_6_0/models/
+cp -r Massive_Higgs_UFO MG5_aMC_v2_6_0/models/
 
 #Generate template
 #You can now generate your template using Madgraph. Let try to generate a scalar Higgs with a mass of 500 GeV, a width of 50 GeV and a coupling to ttbar of 1. Here are the different syntax to generate signal and interference separately.
