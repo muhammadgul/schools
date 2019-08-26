@@ -9,9 +9,9 @@ curl -O -L https://www.hepforge.org/archive/lhapdf/LHAPDF-6.1.6.tar.gz
 tar xf LHAPDF-6.1.6.tar.gz
 rm LHAPDF-6.1.6.tar.gz
 cd LHAPDF-6.1.6
-#./configure --prefix=$PWD/..
+./configure --prefix=$PWD/..
 # if you have boost problem, then use
-./configure --with-boost=/cvmfs/cms.cern.ch/slc7_amd64_gcc530/external/boost/1.63.0/include --prefix=$PWD/..
+#./configure --with-boost=/cvmfs/cms.cern.ch/slc7_amd64_gcc530/external/boost/1.63.0/include --prefix=$PWD/..
 
 make -j8
 make install
@@ -52,7 +52,7 @@ cd MG5_aMC_v2_6_0/
 import model Massive_Higgs_UFO
 generate p p > h0 > t t~
 output template_pp_h0_tt_S
-
+exit
 #Generate interference only
 
 # MG5_aMC> import model Massive_Higgs_UFO
@@ -79,7 +79,7 @@ launch
 madspin=ON 
 
 #Quick check of LHE content
-
+exit
 gunzip Events/run_01/unweighted_events.lhe.gz
 
 #You can use lhe_reader_non_decayed.c script to quickly check what is in your LHE file.
@@ -97,13 +97,14 @@ cd ../..
 #If you have TLorentz.h vector problem concerning with the root version then use root6.
 #find /home/muhammad/root6/ -type f -name "thisroot.sh"
 #source $HOME/root6/build/bin/thisroot.sh
-g++ -std=c++11 lhe_reader_non_decayed.c -o lhe_reader_non_decayed -I`root-config --incdir` `root-config --libs`
+g++ -std=c++1z lhe_reader_non_decayed.c -o lhe_reader_non_decayed -I`root-config --incdir` `root-config --libs`
 
 #g++ lhe_reader_non_decayed.c -o lhe_reader -I`root-config --incdir` `root-config --libs`
 
 #Usage:
-
-./lhe_reader_non_decayed unweighted_events (LHE file name without .lhe)
+#./lhe_reader_non_decayed unweighted_events (LHE file name without .lhe)
+./lhe_reader_non_decayed MG5_aMC_v2_6_0/template_pp_h0_tt_S/Events/run_01/unweighted_events
+root -l MG5_aMC_v2_6_0/template_pp_h0_tt_S/Events/run_01/unweighted_events.root
 
 ######################################################################################################################
 
