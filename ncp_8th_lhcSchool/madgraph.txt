@@ -1,3 +1,5 @@
+(start new terminal)
+
 wget ftp://ftp.ncp.edu.pk/pub/lhc/madgraph.tar
 tar -xvf madgraph.tar
 cd madgraph/
@@ -52,5 +54,5 @@ TBrowser b
 Exercises:
 1): generate for H0 with masses 400, 600 and 700 GeV.
 2): generate for H0 with different widths of the higgs
-3): generate for A0 with masses 400, 500, 600 and 700 GeV. (hints: make the a0 coupling to 1.00 and h0 to 0.00 )
+3): generate for A0 with masses 400, 500, 600 and 700 GeV. (hints: make the a0 coupling to 1.00 and h0 to 0.00 in param_card.dat)
 4): generate for A0 with different widths of the higgs
