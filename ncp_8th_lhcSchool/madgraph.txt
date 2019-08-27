@@ -1,0 +1,56 @@
+wget ftp://ftp.ncp.edu.pk/pub/lhc/madgraph.tar
+tar -xvf madgraph.tar
+cd madgraph/
+
+tar xf LHAPDF-6.1.6.tar.gz
+cd LHAPDF-6.1.6
+./configure --prefix=$PWD/..
+ (if you have make problem) make clean
+make -j4
+make install
+cd ..
+
+tar xf MG5_aMC_v2.6.0.tar.gz
+cp -r Massive_Higgs_UFO MG5_aMC_v2_6_0/models/
+cd MG5_aMC_v2_6_0/
+./bin/mg5_aMC
+
+(wait a minute for madgraph starting. If if says to upgrade the madgraph press “n”, don’t upgrade)
+
+import model Massive_Higgs_UFO
+generate p p > h0 > t t~
+output template_pp_h0_tt_S
+
+exit
+
+cd template_pp_h0_tt_S
+./bin/madevent
+
+launch
+
+(Press button 4 to on madspin)
+(press enter button)
+(press 1 to change the param.dat card)
+(press insert button to make changes)
+(press esc button, :wq and then enter to go out)
+(press enter) 
+
+exit
+
+gunzip Events/run_01/unweighted_events.lhe.gz
+cd ../..
+source /cvmfs/cms.cern.ch/slc6_amd64_gcc700/lcg/root/6.10.01/bin/thisroot.sh
+source /cvmfs/sft.cern.ch/lcg/views/LCG_95/x86_64-slc6-gcc8-opt/setup.sh
+
+g++ -std=c++1z lhe_reader_non_decayed.c -o lhe_reader_non_decayed -I`root-config --incdir` `root-config --libs`
+./lhe_reader_non_decayed MG5_aMC_v2_6_0/template_pp_h0_tt_S/Events/run_01/unweighted_events
+
+root -l MG5_aMC_v2_6_0/template_pp_h0_tt_S/Events/run_01/unweighted_events.root
+TBrowser b
+
+###########################################################
+Exercises:
+1): generate for H0 with masses 400, 600 and 700 GeV.
+2): generate for H0 with different widths of the higgs
+3): generate for A0 with masses 400, 500, 600 and 700 GeV. (hints: make the a0 coupling to 1.00 and h0 to 0.00 )
+4): generate for A0 with different widths of the higgs
