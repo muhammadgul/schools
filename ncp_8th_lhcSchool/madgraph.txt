@@ -56,3 +56,87 @@ Exercises:
 2): generate for H0 with different widths of the higgs
 3): generate for A0 with masses 400, 500, 600 and 700 GeV. (hints: make the a0 coupling to 1.00 and h0 to 0.00 in param_card.dat)
 4): generate for A0 with different widths of the higgs
+
+
+###################################################################
+########Pythia instructions###############
+Pythia 8: How to generate collider data at your local systems                
+
+        
+
+Online Manual of Pythia8
+* Online manual of Pythia 8 is available at:
+* 
+http://home.thep.lu.se/~torbjorn/pythia82php/Welcome.php
+
+Downloading Pythia8
+* 
+Download the file pythia8185.tgz to a suitable location.
+* 
+Go to your home directory:
+
+
+
+
+Run this Commands on your Terminal 
+
+
+
+cd $HOME
+
+mkdir Pythia8
+
+cd Pythia8
+
+
+wget ftp://ftp.ncp.edu.pk/pub/lhc/zmumu_example.zip
+unzip zmumu_example.zip
+
+wget http://home.thep.lu.se/~torbjorn/pythia8/pythia8185.tgz
+
+tar xvfz pythia8185.tgz
+
+cd pythia8185
+make
+
+cd rootexamples
+
+make hist 
+
+./hist.exe
+
+
+
+You will see the histogram in the output of this program. 
+The output root file can be
+ opened by the following command:
+
+
+root -l hist.root 
+
+new TBrowser;
+
+
+Great You have done a wonderful work. 
+Now you can produce MC data of any kind of accelerator.
+
+Exercise:    
+Z —> mu mu example using Pythia8
+
+
+Now copy a complete Z —> mu mu example, which generate and reconstruct Z boson mass using 4-momentum of di-muons.
+
+
+Copy the file in your working directory:
+
+
+
+cp ../../rootexamples/hist.cc . 
+make hist 
+
+./hist.exe
+
+
+root -l hist.root 
+TBrowser b
+
