@@ -140,3 +140,17 @@ make hist
 root -l hist.root 
 TBrowser b
 
+#######################################################################################################
+
+######### CMS Open data exercises ######################
+Display an event: go to the first part, visualize the event: and then follow the instruction.
+http://opendata.cern.ch/docs/cms-guide-for-education
+
+##### Do the higgs to 4 lepton exercises
+http://opendata.cern.ch/record/5500
+
+##### Do the di-muon examples
+http://opendata.cern.ch/record/12342
+
+
+
