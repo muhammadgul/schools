@@ -1,64 +1,21 @@
-(start new terminal)
+######### CMS Open data exercises ######################
 
-wget ftp://ftp.ncp.edu.pk/pub/lhc/madgraph.tar
-tar -xvf madgraph.tar
-cd madgraph/
+Display an event: go to the first part, visualize the event: and then follow the instruction.
+http://opendata.cern.ch/docs/cms-guide-for-education
 
-tar xf LHAPDF-6.1.6.tar.gz
-cd LHAPDF-6.1.6
-./configure --prefix=$PWD/..
- (if you have make problem) make clean
-make -j4
-make install
-cd ..
+############################################
 
-tar xf MG5_aMC_v2.6.0.tar.gz
-cp -r Massive_Higgs_UFO MG5_aMC_v2_6_0/models/
-cd MG5_aMC_v2_6_0/
-./bin/mg5_aMC
+##### Do the di-muon examples
+http://opendata.cern.ch/visualise/histograms
+Exercises: 
+-- Select “DiMuon events around the Z boson mass”
+— See all the variables and discuss with each other.
+— Change the bin sizes.. And discuss the effects
+— Change the axis to log scales .. And discuss
 
-(wait a minute for madgraph starting. If if says to upgrade the madgraph press “n”, don’t upgrade)
+http://opendata.cern.ch/record/12342
+##################################################
 
-import model Massive_Higgs_UFO
-generate p p > h0 > t t~
-output template_pp_h0_tt_S
-
-exit
-
-cd template_pp_h0_tt_S
-./bin/madevent
-
-launch
-
-(Press button 4 to on madspin)
-(press enter button)
-(press 1 to change the param.dat card)
-(press insert button to make changes)
-(press esc button, :wq and then enter to go out)
-(press enter) 
-
-exit
-
-gunzip Events/run_01/unweighted_events.lhe.gz
-cd ../..
-source /cvmfs/cms.cern.ch/slc6_amd64_gcc700/lcg/root/6.10.01/bin/thisroot.sh
-source /cvmfs/sft.cern.ch/lcg/views/LCG_95/x86_64-slc6-gcc8-opt/setup.sh
-
-g++ -std=c++1z lhe_reader_non_decayed.c -o lhe_reader_non_decayed -I`root-config --incdir` `root-config --libs`
-./lhe_reader_non_decayed MG5_aMC_v2_6_0/template_pp_h0_tt_S/Events/run_01/unweighted_events
-
-root -l MG5_aMC_v2_6_0/template_pp_h0_tt_S/Events/run_01/unweighted_events.root
-TBrowser b
-
-###########################################################
-Exercises:
-1): generate for H0 with masses 400, 600 and 700 GeV.
-2): generate for H0 with different widths of the higgs
-3): generate for A0 with masses 400, 500, 600 and 700 GeV. (hints: make the a0 coupling to 1.00 and h0 to 0.00 in param_card.dat)
-4): generate for A0 with different widths of the higgs
-
-
-###################################################################
 ########Pythia instructions###############
 Pythia 8: How to generate collider data at your local systems                
 
@@ -139,25 +96,79 @@ make hist
 
 root -l hist.root 
 TBrowser b
+###############################################################################
+
+(start new terminal)
+
+wget ftp://ftp.ncp.edu.pk/pub/lhc/madgraph.tar
+tar -xvf madgraph.tar
+cd madgraph/
+
+tar xf LHAPDF-6.1.6.tar.gz
+cd LHAPDF-6.1.6
+./configure --prefix=$PWD/..
+ (if you have make problem) make clean
+make -j4
+make install
+cd ..
+
+tar xf MG5_aMC_v2.6.0.tar.gz
+cp -r Massive_Higgs_UFO MG5_aMC_v2_6_0/models/
+cd MG5_aMC_v2_6_0/
+./bin/mg5_aMC
+
+(wait a minute for madgraph starting. If if says to upgrade the madgraph press “n”, don’t upgrade)
+
+import model Massive_Higgs_UFO
+generate p p > h0 > t t~
+output template_pp_h0_tt_S
+
+exit
+
+cd template_pp_h0_tt_S
+./bin/madevent
+
+launch
+
+(Press button 4 to on madspin)
+(press enter button)
+(press 1 to change the param.dat card)
+(press insert button to make changes)
+(press esc button, :wq and then enter to go out)
+(press enter) 
+
+exit
+
+gunzip Events/run_01/unweighted_events.lhe.gz
+cd ../..
+source /cvmfs/cms.cern.ch/slc6_amd64_gcc700/lcg/root/6.10.01/bin/thisroot.sh
+source /cvmfs/sft.cern.ch/lcg/views/LCG_95/x86_64-slc6-gcc8-opt/setup.sh
+
+g++ -std=c++1z lhe_reader_non_decayed.c -o lhe_reader_non_decayed -I`root-config --incdir` `root-config --libs`
+./lhe_reader_non_decayed MG5_aMC_v2_6_0/template_pp_h0_tt_S/Events/run_01/unweighted_events
+
+root -l MG5_aMC_v2_6_0/template_pp_h0_tt_S/Events/run_01/unweighted_events.root
+TBrowser b
+
+###########################################################
+Exercises:
+1): generate for H0 with masses 400, 600 and 700 GeV.
+2): generate for H0 with different widths of the higgs
+3): generate for A0 with masses 400, 500, 600 and 700 GeV. (hints: make the a0 coupling to 1.00 and h0 to 0.00 in param_card.dat)
+4): generate for A0 with different widths of the higgs
+
+
+###################################################################
 
 #######################################################################################################
 
-######### CMS Open data exercises ######################
-Display an event: go to the first part, visualize the event: and then follow the instruction.
-http://opendata.cern.ch/docs/cms-guide-for-education
+
 
 ##### Do the higgs to 4 lepton exercises
 http://opendata.cern.ch/record/5500
 
-##### Do the di-muon examples
-http://opendata.cern.ch/visualise/histograms
-Exercises: 
--- Select “DiMuon events around the Z boson mass”
-— See all the variables and discuss with each other.
-— Change the bin sizes.. And discuss the effects
-— Change the axis to log scales .. And discuss
 
-http://opendata.cern.ch/record/12342
+##########################################################################
 
 #### ROOT exercises
 https://root.cern/doc/master/group__Tutorials.html
