@@ -150,7 +150,18 @@ http://opendata.cern.ch/docs/cms-guide-for-education
 http://opendata.cern.ch/record/5500
 
 ##### Do the di-muon examples
+http://opendata.cern.ch/visualise/histograms
+Exercises: 
+-- Select “DiMuon events around the Z boson mass”
+— See all the variables and discuss with each other.
+— Change the bin sizes.. And discuss the effects
+— Change the axis to log scales .. And discuss
+
 http://opendata.cern.ch/record/12342
 
+#### ROOT exercises
+https://root.cern/doc/master/group__Tutorials.html
+
+https://github.com/root-project/root/tree/10581bd669653a37ce3ff028a00f00b230f8c60a/tutorials
 
 
