@@ -1,0 +1,8 @@
+install MadGraph from here with pdfsets:
+https://github.com/muhammadgul/schools/blob/master/ncp_8th_lhcSchool/madgraph.txt
+
+import model sm
+define p  = g u c d s u~ c~ d~ s~ b b~
+define w = w- w+
+define top = t t~
+generate p p > top w z
