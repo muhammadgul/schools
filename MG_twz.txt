@@ -6,6 +6,28 @@ run ./bin/mg5_amc
 run install pythia-pgs
 run install Delphes
 
+########################################################################################################
+Running An example of W-boson mass: https://cp3.irmp.ucl.ac.be/projects/madgraph/wiki/TOPMassMeasurmentExample
+
+generate p p > t t~ , t > b l+ vl, t~ > b~ l- vl~
+output TUTO_MW_MADEVENT
+launch
+delphes=ON
+>
+>
+
+Run MG ./bin/mg5_amc TUTO_MW_MADEVENT
+Your lhco events file should be place at: TUTO_MW_MADEVENT/Events/run_01/tag_1_delphes_events.lhco.gz
+### change .root file to lhco manually
+we need it or not?
+
+####### Preparing MadWeight Run:
+run ./bin/mg5_amc 
+generate p p > t t~ , t > b l+ vl, t~ > b~ l- vl~
+output madweight TUTO_MW_MADWEIGHT
+
+########################################################################################################
+
 import model sm
 define p  = g u c d s u~ c~ d~ s~ b b~
 define w = w- w+
