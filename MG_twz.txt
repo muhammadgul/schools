@@ -18,7 +18,7 @@ delphes=ON
 
 Your root events file should be place at: TUTO_MW_MADEVENT/Events/run_01/tag_1_delphes_events.root
 ### change .root file to lhco manually
-root2lhco  TUTO_MW_MADEVENT/Events/run_01/tag_1_delphes_events.root  TUTO_MW_MADEVENT/Events/run_01/tag_1_delphes_events.lhco
+./root2lhco  TUTO_MW_MADEVENT/Events/run_01/tag_1_delphes_events.root  TUTO_MW_MADEVENT/Events/run_01/tag_1_delphes_events.lhco
 ## If you can't see root2lhco command, then made a symbolic link to it.
 ln -s /ehep/ehep_data/mgul/test/madgraph/MG5_aMC_v2_6_0/Delphes/root2lhco
 
