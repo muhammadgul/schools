@@ -107,7 +107,10 @@ cd madgraph/
 tar xf LHAPDF-6.1.6.tar.gz
 cd LHAPDF-6.1.6
 ./configure --prefix=$PWD/..
+ # If you have boost problem, then run the command
+ #./configure --with-boost=/cvmfs/cms.cern.ch/slc7_amd64_gcc530/external/boost/1.63.0/include --prefix=$PWD/..
  (if you have make problem) make clean
+ 
 make -j4
 make install
 cd ..
