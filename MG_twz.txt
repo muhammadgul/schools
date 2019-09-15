@@ -16,17 +16,38 @@ delphes=ON
 >
 >
 
-Run MG ./bin/mg5_amc TUTO_MW_MADEVENT
-Your lhco events file should be place at: TUTO_MW_MADEVENT/Events/run_01/tag_1_delphes_events.lhco.gz
+Your root events file should be place at: TUTO_MW_MADEVENT/Events/run_01/tag_1_delphes_events.root
 ### change .root file to lhco manually
-we need it or not?
+root2lhco  TUTO_MW_MADEVENT/Events/run_01/tag_1_delphes_events.root  TUTO_MW_MADEVENT/Events/run_01/tag_1_delphes_events.lhco
+## If you can't see root2lhco command, then made a symbolic link to it.
+ln -s /ehep/ehep_data/mgul/test/madgraph/MG5_aMC_v2_6_0/Delphes/root2lhco
 
 ####### Preparing MadWeight Run:
 run ./bin/mg5_amc 
 generate p p > t t~ , t > b l+ vl, t~ > b~ l- vl~
 output madweight TUTO_MW_MADWEIGHT
+exit
+cd TUTO_MW_MADWEIGHT
+# launc the madweight
+./bin/madweight.py
+## Sometimes it makes problem as in my case, but I solved it. You can see the problem and solution in this bug.
+## https://bugs.launchpad.net/mg5amcnlo/+bug/1844041
+
+## you can make changes in cards
+## which transfer function to be used, just type:
+change_tf
+## different TF appears, so you can choose one of them.
+
+## Further options with input .lhco file can be given as input
+set nb_exp_events 2
+set nb_event_by_node 2
+set MW_int_points 1000
+set MW_parameter 13 165 170 175 180 185
+set precision 0.01
+set inputfile ../TUTO_MW_MADEVENT/Events/run_01/tag_1_delphes_events.lhco
 
 ########################################################################################################
+## For TWZ, the MadGraph sentences looks like:
 
 import model sm
 define p  = g u c d s u~ c~ d~ s~ b b~
