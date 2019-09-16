@@ -2,33 +2,41 @@ install MadGraph from here with pdfsets:
 https://github.com/muhammadgul/schools/blob/master/ncp_8th_lhcSchool/madgraph.txt
 
 `Install pythia-pgs and Delphes`
-run ./bin/mg5_amc 
+run ./bin/mg5_aMC 
 run install pythia-pgs
 run install Delphes
 
 ########################################################################################################
 Running An example of W-boson mass: https://cp3.irmp.ucl.ac.be/projects/madgraph/wiki/TOPMassMeasurmentExample
 
-generate p p > t t~ , t > b l+ vl, t~ > b~ l- vl~
-output TUTO_MW_MADEVENT
+import model sm
+define p  = g u c d s u~ c~ d~ s~ b b~
+define w = w- w+
+define top = t t~
+generate p p > top w z
+output template_twz_madevents
 launch
 delphes=ON
 >
 >
 
-Your root events file should be place at: TUTO_MW_MADEVENT/Events/run_01/tag_1_delphes_events.root
+Your root events file should be place at: template_twz_madevents/Events/run_01/tag_1_delphes_events.root
 ### change .root file to lhco manually
-./root2lhco  TUTO_MW_MADEVENT/Events/run_01/tag_1_delphes_events.root  TUTO_MW_MADEVENT/Events/run_01/tag_1_delphes_events.lhco
+./root2lhco  template_twz_madevents/Events/run_01/tag_1_delphes_events.root  template_twz_madevents/Events/run_01/tag_1_delphes_events.lhco
 ## If you can't see root2lhco command, then made a symbolic link to it.
 ln -s /ehep/ehep_data/mgul/test/madgraph/MG5_aMC_v2_6_0/Delphes/root2lhco
 
 ####### Preparing MadWeight Run:
-run ./bin/mg5_amc 
-generate p p > t t~ , t > b l+ vl, t~ > b~ l- vl~
-output madweight TUTO_MW_MADWEIGHT
+run ./bin/mg5_aMC 
+import model sm
+define p  = g u c d s u~ c~ d~ s~ b b~
+define w = w- w+
+define top = t t~
+generate p p > top w z
+output madweight template_twz_madweight
 exit
-cd TUTO_MW_MADWEIGHT
-# launc the madweight
+cd template_twz_madweight
+# launch the madweight
 ./bin/madweight.py
 ## Sometimes it makes problem as in my case, but I solved it. You can see the problem and solution in this bug.
 ## https://bugs.launchpad.net/mg5amcnlo/+bug/1844041
@@ -45,6 +53,8 @@ set MW_int_points 1000
 set MW_parameter 13 165 170 175 180 185
 set precision 0.01
 set inputfile ../TUTO_MW_MADEVENT/Events/run_01/tag_1_delphes_events.lhco
+>
+
 
 ########################################################################################################
 ## For TWZ, the MadGraph sentences looks like:
